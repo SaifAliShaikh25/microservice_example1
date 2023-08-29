@@ -1,0 +1,27 @@
+package com.examplemicroservices.user.service.advice;
+
+import org.springframework.http.HttpStatus;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.examplemicroservices.user.service.customexception.MyCustomException;
+
+@ControllerAdvice
+public class MyControllerAdvice{
+
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<String> nullDepartment(Exception nullDept){
+		return new ResponseEntity<String>("No such department found. Please check User id."
+				+ "Exception raised "+nullDept, HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(MyCustomException.class)
+	public ResponseEntity<String> nullDeptFunction(MyCustomException nullDept){
+		return new ResponseEntity<String>("Department id does not exist. Please check."
+				+ "Exception raised - "+nullDept, HttpStatus.BAD_REQUEST);
+	}
+	
+	
+}
