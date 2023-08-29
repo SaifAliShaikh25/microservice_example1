@@ -1,0 +1,5 @@
+package com.examplemicroservices.department.service.advice;
+
+public class MyControllerAdvice {
+
+}

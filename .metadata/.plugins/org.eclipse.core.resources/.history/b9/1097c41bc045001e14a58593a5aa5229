@@ -1,0 +1,5 @@
+package com.examplemicroservices.user.service.customexception;
+
+public class MyCustomException {
+
+}

@@ -1,0 +1,16 @@
+package com.examplemicroservices.user.service.advice;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class MyControllerAdvice{
+
+	@ExceptionHandler(NullPointerException.class)
+	public ResponseEntity<String> nullDepartment(NullPointerException nullDept){
+		return new ResponseEntity<String>("No such department found. Please check User id", HttpStatus.BAD_REQUEST);
+	}
+}

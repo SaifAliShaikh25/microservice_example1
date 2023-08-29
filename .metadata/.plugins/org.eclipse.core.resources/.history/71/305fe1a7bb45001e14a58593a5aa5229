@@ -1,0 +1,5 @@
+package com.examplemicroservices.department.service.customexception;
+
+public class NullDepartmentException {
+
+}
